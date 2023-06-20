@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation          Positive Case
+Documentation          Negative Case
 Library                SeleniumLibrary
 Resource                ../Resources/swaglab_negative_keywords.robot
 Suite Setup             User open Browser Chrome
