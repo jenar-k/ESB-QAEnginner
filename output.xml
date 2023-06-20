@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.5 on win32)" generated="20230621 05:57:12.405" rpa="false" schemaversion="2">
+<suite id="s1" name="Suites" source="D:\PT Esensi Solusi Buana\Technical Skill\Suites">
+<suite id="s1-s1" name="Swaglab Negative" source="D:\PT Esensi Solusi Buana\Technical Skill\Suites\swaglab_negative.robot">
+<kw name="User open Browser Chrome" library="swaglab_negative_keywords" type="SETUP">
+<doc>Open Browser Using Chrome</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${homepage_url}</arg>
+<arg>${browser_type}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230621 05:57:12.546" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg timestamp="20230621 05:57:12.552" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230621 05:57:12.546" endtime="20230621 05:57:15.436"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230621 05:57:15.437" endtime="20230621 05:57:15.548"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${homepage_url}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230621 05:57:15.556" level="INFO">Current location is 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230621 05:57:15.548" endtime="20230621 05:57:15.556"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:12.545" endtime="20230621 05:57:15.557"/>
+</kw>
+<test id="s1-s1-t1" name="User Failed login into Swaglab Website because input wrong password">
+<kw name="Validate login page of Swaglab" library="swaglab_negative_keywords">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${username_column}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.584" level="INFO">Element '//input[@id="user-name"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.558" endtime="20230621 05:57:15.584"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${password_column}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.611" level="INFO">Element '//input[@id="password"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.585" endtime="20230621 05:57:15.611"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.632" level="INFO">Element '//input[@id="login-button"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.611" endtime="20230621 05:57:15.632"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.558" endtime="20230621 05:57:15.632"/>
+</kw>
+<kw name="User input valid username" library="swaglab_negative_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${username_column}</arg>
+<arg>${valid_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:15.633" level="INFO">Typing text 'standard_user' into text field '//input[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:15.633" endtime="20230621 05:57:15.708"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.632" endtime="20230621 05:57:15.708"/>
+</kw>
+<kw name="User input invalid password" library="swaglab_negative_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_column}</arg>
+<arg>${invalid_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:15.709" level="INFO">Typing text 'invalidpassword' into text field '//input[@id="password"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:15.709" endtime="20230621 05:57:15.766"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.709" endtime="20230621 05:57:15.766"/>
+</kw>
+<kw name="User click login button" library="swaglab_negative_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:15.766" level="INFO">Clicking element '//input[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:15.766" endtime="20230621 05:57:15.805"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.766" endtime="20230621 05:57:15.805"/>
+</kw>
+<kw name="Error message &quot;Username and password do not match any user in this service&quot; will be appear on the screen" library="swaglab_negative_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${errorbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:15.806" endtime="20230621 05:57:15.820"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${errorbox}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.831" level="INFO">Element '//*[@data-test="error"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.820" endtime="20230621 05:57:15.831"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${errormessage_wronguser}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.845" level="INFO">Element '//*[contains(text(),'Username and password do not match any user in this service')]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.831" endtime="20230621 05:57:15.845"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.806" endtime="20230621 05:57:15.845"/>
+</kw>
+<doc>Negative case: input wrong password</doc>
+<tag>Negative Case</tag>
+<status status="PASS" starttime="20230621 05:57:15.557" endtime="20230621 05:57:15.845"/>
+</test>
+<test id="s1-s1-t2" name="User Failed login into Swaglab Website because input wrong username">
+<kw name="Validate login page of Swaglab" library="swaglab_negative_keywords">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${username_column}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.857" level="INFO">Element '//input[@id="user-name"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.847" endtime="20230621 05:57:15.857"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${password_column}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.868" level="INFO">Element '//input[@id="password"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.857" endtime="20230621 05:57:15.868"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:15.879" level="INFO">Element '//input[@id="login-button"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:15.868" endtime="20230621 05:57:15.879"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.846" endtime="20230621 05:57:15.879"/>
+</kw>
+<kw name="User input invalid username" library="swaglab_negative_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${username_column}</arg>
+<arg>${invalid_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:15.880" level="INFO">Typing text 'standard_jenar' into text field '//input[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:15.880" endtime="20230621 05:57:15.939"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.880" endtime="20230621 05:57:15.939"/>
+</kw>
+<kw name="User input valid password" library="swaglab_negative_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_column}</arg>
+<arg>${valid_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:15.940" level="INFO">Typing text 'secret_sauce' into text field '//input[@id="password"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:15.940" endtime="20230621 05:57:16.000"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:15.940" endtime="20230621 05:57:16.000"/>
+</kw>
+<kw name="User click login button" library="swaglab_negative_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:16.001" level="INFO">Clicking element '//input[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:16.000" endtime="20230621 05:57:16.026"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:16.000" endtime="20230621 05:57:16.027"/>
+</kw>
+<kw name="Error message &quot;Username and password do not match any user in this service&quot; will be appear on the screen" library="swaglab_negative_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${errorbox}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:16.027" endtime="20230621 05:57:16.038"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${errorbox}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:16.049" level="INFO">Element '//*[@data-test="error"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:16.038" endtime="20230621 05:57:16.049"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${errormessage_wronguser}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:16.060" level="INFO">Element '//*[contains(text(),'Username and password do not match any user in this service')]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:16.049" endtime="20230621 05:57:16.060"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:16.027" endtime="20230621 05:57:16.060"/>
+</kw>
+<doc>Negative case: input wrong username</doc>
+<tag>Negative Case</tag>
+<status status="PASS" starttime="20230621 05:57:15.846" endtime="20230621 05:57:16.060"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230621 05:57:16.061" endtime="20230621 05:57:18.154"/>
+</kw>
+<doc>Positive Case</doc>
+<status status="PASS" starttime="20230621 05:57:12.422" endtime="20230621 05:57:18.154"/>
+</suite>
+<suite id="s1-s2" name="Swaglab Positive" source="D:\PT Esensi Solusi Buana\Technical Skill\Suites\swaglab_positive.robot">
+<kw name="User open Browser Chrome" library="swaglab_positive_keywords" type="SETUP">
+<doc>Open Browser Using Chrome</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${homepage_url}</arg>
+<arg>${browser_type}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230621 05:57:18.173" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg timestamp="20230621 05:57:18.179" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230621 05:57:18.173" endtime="20230621 05:57:20.973"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230621 05:57:20.973" endtime="20230621 05:57:21.083"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${homepage_url}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230621 05:57:21.090" level="INFO">Current location is 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.083" endtime="20230621 05:57:21.090"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:18.173" endtime="20230621 05:57:21.090"/>
+</kw>
+<test id="s1-s2-t1" name="User Access and Successfuly login into Swaglab Website">
+<kw name="Validate login page of Swaglab" library="swaglab_positive_keywords">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${username_column}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.115" level="INFO">Element '//input[@id="user-name"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.092" endtime="20230621 05:57:21.115"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${password_column}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.141" level="INFO">Element '//input[@id="password"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.115" endtime="20230621 05:57:21.142"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.162" level="INFO">Element '//input[@id="login-button"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.142" endtime="20230621 05:57:21.162"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.091" endtime="20230621 05:57:21.162"/>
+</kw>
+<kw name="User input valid username" library="swaglab_positive_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${username_column}</arg>
+<arg>${valid_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.162" level="INFO">Typing text 'standard_user' into text field '//input[@id="user-name"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.162" endtime="20230621 05:57:21.236"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.162" endtime="20230621 05:57:21.236"/>
+</kw>
+<kw name="User input valid password" library="swaglab_positive_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_column}</arg>
+<arg>${valid_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.236" level="INFO">Typing text 'secret_sauce' into text field '//input[@id="password"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.236" endtime="20230621 05:57:21.297"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.236" endtime="20230621 05:57:21.297"/>
+</kw>
+<kw name="User click login button" library="swaglab_positive_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.298" level="INFO">Clicking element '//input[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.298" endtime="20230621 05:57:21.358"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.298" endtime="20230621 05:57:21.359"/>
+</kw>
+<kw name="Validate the &quot;Products&quot; page after successfuly login" library="swaglab_positive_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${products_text}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:21.359" endtime="20230621 05:57:21.379"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${products_text}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.394" level="INFO">Element '//*[text()='Products']' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.379" endtime="20230621 05:57:21.394"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.359" endtime="20230621 05:57:21.394"/>
+</kw>
+<doc>Positive Case: Successfuly login and validate the page</doc>
+<tag>Positive Case</tag>
+<status status="PASS" starttime="20230621 05:57:21.090" endtime="20230621 05:57:21.394"/>
+</test>
+<test id="s1-s2-t2" name="User Successfuly Checkout Item">
+<kw name="User Choose Backpack Item and puts it in the cart" library="swaglab_positive_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${cart_button_for_backpack}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.396" level="INFO">Clicking element '//*[@id="add-to-cart-sauce-labs-backpack"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.395" endtime="20230621 05:57:21.437"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.395" endtime="20230621 05:57:21.438"/>
+</kw>
+<kw name="User go to cart page" library="swaglab_positive_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${cart_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.438" level="INFO">Clicking element '//*[@id="shopping_cart_container"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.438" endtime="20230621 05:57:21.487"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.438" endtime="20230621 05:57:21.487"/>
+</kw>
+<kw name="Validate Backpack Item appear in the cart page" library="swaglab_positive_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${backpack_in_cart}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:21.488" endtime="20230621 05:57:21.505"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${backpack_in_cart}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.518" level="INFO">Element '//*[contains(text(),'Backpack')]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.506" endtime="20230621 05:57:21.518"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.487" endtime="20230621 05:57:21.518"/>
+</kw>
+<kw name="User click Checkout button" library="swaglab_positive_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${checkout_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:21.518" endtime="20230621 05:57:21.536"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${checkout_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.536" level="INFO">Clicking element '//*[@id="checkout"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.536" endtime="20230621 05:57:21.565"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.518" endtime="20230621 05:57:21.565"/>
+</kw>
+<kw name="User input fristname" library="swaglab_positive_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${firstname_column}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:21.566" endtime="20230621 05:57:21.580"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${firstname_column}</arg>
+<arg>${firstname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.580" level="INFO">Typing text 'Jenar' into text field '//*[@id="first-name"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.580" endtime="20230621 05:57:21.634"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.566" endtime="20230621 05:57:21.634"/>
+</kw>
+<kw name="User input lastname" library="swaglab_positive_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${lastname_column}</arg>
+<arg>${lastname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.635" level="INFO">Typing text 'Kuswidiardi' into text field '//*[@id="last-name"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.635" endtime="20230621 05:57:21.703"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.635" endtime="20230621 05:57:21.703"/>
+</kw>
+<kw name="User input Postal Code" library="swaglab_positive_keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${postalcode_column}</arg>
+<arg>${postalcode}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.704" level="INFO">Typing text '55581' into text field '//*[@id="postal-code"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.703" endtime="20230621 05:57:21.759"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.703" endtime="20230621 05:57:21.759"/>
+</kw>
+<kw name="User click continue button" library="swaglab_positive_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continue_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.760" level="INFO">Clicking element '//*[@id="continue"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.760" endtime="20230621 05:57:21.803"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.759" endtime="20230621 05:57:21.803"/>
+</kw>
+<kw name="Validate item is correct" library="swaglab_positive_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${backpack_preview}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:21.804" endtime="20230621 05:57:21.820"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${backpack_preview}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.834" level="INFO">Element '//*[contains(text(),'Sauce Labs Backpack')]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.820" endtime="20230621 05:57:21.834"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.803" endtime="20230621 05:57:21.834"/>
+</kw>
+<kw name="User click finish button" library="swaglab_positive_keywords">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${finish_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.846" level="INFO">Element '//*[@id="finish"]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.834" endtime="20230621 05:57:21.846"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${finish_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230621 05:57:21.847" level="INFO">Clicking element '//*[@id="finish"]'.</msg>
+<status status="PASS" starttime="20230621 05:57:21.846" endtime="20230621 05:57:21.875"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.834" endtime="20230621 05:57:21.875"/>
+</kw>
+<kw name="Special thanks for order will appear" library="swaglab_positive_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${thankyou}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230621 05:57:21.876" endtime="20230621 05:57:21.890"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${thankyou}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230621 05:57:21.901" level="INFO">Element '//*[contains(text(),'Thank you for your order!')]' is displayed.</msg>
+<status status="PASS" starttime="20230621 05:57:21.891" endtime="20230621 05:57:21.901"/>
+</kw>
+<status status="PASS" starttime="20230621 05:57:21.876" endtime="20230621 05:57:21.902"/>
+</kw>
+<doc>Positive Case: Successfuly checkout one item and validate</doc>
+<tag>Positive Case</tag>
+<status status="PASS" starttime="20230621 05:57:21.395" endtime="20230621 05:57:21.902"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230621 05:57:21.903" endtime="20230621 05:57:23.987"/>
+</kw>
+<doc>Positive Case</doc>
+<status status="PASS" starttime="20230621 05:57:18.159" endtime="20230621 05:57:23.987"/>
+</suite>
+<status status="PASS" starttime="20230621 05:57:12.406" endtime="20230621 05:57:23.992"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Negative Case</stat>
+<stat pass="2" fail="0" skip="0">Positive Case</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Swaglab Negative">Suites.Swaglab Negative</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s2" name="Swaglab Positive">Suites.Swaglab Positive</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
